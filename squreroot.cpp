@@ -24,8 +24,24 @@ int root(int key){
 
 }
 
+double morepre(int n,int precision,int tempsol){
+    double factor=1;
+    double ans=tempsol;
+    for(int i=0;i<precision;i++){  
+        factor=factor/10;
+        for(double j=ans; j*j<n ; j=j+factor){
+            ans=j;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
-   cout<<root(79);
+    cout<<"enter the number "<<endl;
+    int n;
+    cin>>n;
+    int tempsol=root(n);
+    cout<<"root is "<<morepre(n,3,tempsol);
     return 0;
 }
